@@ -8,8 +8,10 @@ main(int argc, char *argv[])
     fprintf(2, "Usage: sleep [ticks]...\n");
     exit(1);
   }
-  for (int i = 1; i < argc; i++) {
-    sleep(atoi(argv[i]));
+  int res = sleep(atoi(argv[1]));
+  if (res == -1) {
+    fprintf(2, "Process killed");
+    exit(1);
   }
   exit(0);
 }
